@@ -1,0 +1,232 @@
+header {
+  position: relative;
+  height: 100%;
+  padding: 1rem;
+}
+
+header::before {
+  content: "";
+  background-image: url("/public/images/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(65%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: -1;
+}
+
+header nav {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav span {
+  font-weight: 700;
+}
+
+.mobile-links {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  top: 3.5rem;
+  width: 90%;
+  gap: 1.75rem;
+  padding: 3rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  left: 50%;
+  transform: translate(-50%, 1rem);
+  border-radius: 5px;
+}
+
+.mobile-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+header .content {
+  padding: 8rem 0 0 0;
+  color: white;
+}
+
+header .content > div:first-child {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+
+header .content div:first-child div {
+  display: flex;
+  flex-direction: column;
+}
+
+header .content div:first-child span:first-child {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+header .content > div:nth-child(2) {
+  margin: 4rem 0;
+}
+
+header .content > div:nth-child(3) {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  padding: 15px;
+  gap: 10px;
+  flex-direction: column-reverse;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header .content > div:nth-child(3) h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+header .content > div:nth-child(3) p,
+header .content > div:nth-child(3) span:last-child {
+  font-size: 12px;
+  margin: 5px 0 0 0;
+  color: #909090;
+  font-weight: 500;
+}
+
+header .content > div:nth-child(3) span {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+header .content > div:nth-child(3) img {
+  width: 100%;
+  filter: brightness(75%);
+  border-radius: 5px;
+}
+/* 
+header .content > div:nth-child(4) {
+  margin-top: 2rem;
+  color: black;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  gap: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header .content > div:nth-child(4) h2 {
+  font-size: 18px;
+}
+
+header .content > div:nth-child(4) div {
+  background-color: #ededed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem .75rem;
+  margin: 1rem 0;
+}
+
+header .content > div:nth-child(4) div p{
+  font-size: 15px;
+  font-weight: 500;
+} */
+
+/*....main.....*/
+
+main section:first-child,
+main section:nth-child(2) {
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+main section:first-child span,
+main section:nth-child(2) span {
+  color: #777;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+main section:first-child p,
+main section:nth-child(2) p {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+main section:first-child div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+main section:first-child div img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(65%);
+  border-radius: 5px;
+}
+
+main section:nth-child(2) > div{
+  margin: 2rem 0;
+}
+
+main section:nth-child(2) div div {
+  border-radius: 0.625rem;
+  border: 1px solid #c3c3c3;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  margin: 1rem 0;
+}
+
+main section:nth-child(2) div div div:first-child {
+  background-color: #ffe7df;
+  padding: 1rem;
+  border: none;
+  color: #fcbaa4;
+  font-size: 28px;
+}
+
+main section:nth-child(2) div div > div{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+main section:nth-child(2) div div h3{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+main section:nth-child(2) div div p{
+  margin: 0;
+  color: #333;
+font-weight: 300;
+font-size: 13px;
+}

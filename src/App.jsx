@@ -2,6 +2,7 @@ import "./app.css";
 import Hamburger from "hamburger-react";
 import { useState } from "react";
 import { MdFreeCancellation } from "react-icons/md";
+import { FaTwitter, FaFacebook, FaInstagram } from "react-icons/fa";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -53,7 +54,7 @@ function App() {
 
             <h1>Discover Extraordinary Comfort in Hotels</h1>
           </div>
-{/* 
+          {/* 
           <div>
             <div>
               <h2>Our most booked hotel</h2>
@@ -157,10 +158,62 @@ function App() {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               </div>
             </div>
-
           </div>
         </section>
+
+        <section>
+          <h2>Our Top Picks For You</h2>
+          <div>
+            <span>Search</span>
+            <img src="/public/images/barcelona.jpg" alt="" />
+            <span>Barcelona, Spain</span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+            consequat ornare ex, nec venenatis massa efficitur nec.
+          </p>
+          <button>Discover more</button>
+        </section>
       </main>
+
+      <footer>
+        <div>
+          <div>
+            <span>Booking.</span>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+              consequat ornare ex, nec venenatis massa efficitur nec.
+            </p>
+          </div>
+          <div>
+            <span>Navigation</span>
+            <div>
+              <a href="">Home</a>
+              <a href="">About Us</a>
+              <a href="">Services</a>
+              <a href="">Destination</a>
+            </div>
+          </div>
+
+          <div>
+            <span>Contact Us</span>
+            <div>
+              <a href="">+123 456 789</a>
+              <a href="">info@booking.com</a>
+              <a href="">booking.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <span>All Rights Reserved</span>
+          <div>
+            <FaTwitter className="icon" />
+            <FaFacebook className="icon" />
+            <FaInstagram className="icon" />
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

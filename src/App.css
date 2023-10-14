@@ -28,7 +28,7 @@ header nav {
   align-items: center;
 }
 
-header nav span {
+header nav > span:first-child {
   font-weight: 700;
 }
 
@@ -36,6 +36,53 @@ header nav button {
   border: none;
   background-color: transparent;
   color: white;
+}
+
+.link {
+  align-items: center;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+}
+
+.mask {
+  position: relative;
+  padding: 0;
+  height: 20px;
+  overflow: hidden;
+}
+
+.link-container {
+  transition: transform 0.4s ease;
+}
+
+.title {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 20px;
+  transition: transform 0.4s ease;
+}
+
+.link-title1 {
+  transform-origin: right center;
+}
+
+.link-title2 {
+  transform-origin: left center;
+  transform: rotate(20deg);
+}
+.link:hover .link-container {
+  transform: translateY(-20px);
+}
+
+/* Rotate texts a little bit */
+.link:hover .link-title1 {
+  transform: rotate(20deg);
+}
+
+.link:hover .link-title2 {
+  transform: rotate(0);
 }
 
 .mobile-links {
@@ -96,9 +143,20 @@ header .content > div:last-child > div:last-child {
 
 main section:first-child,
 main section:nth-child(2),
-main section:nth-child(3) {
+main section:nth-child(3),
+main section:nth-child(4) {
   padding: 1rem;
   margin-top: 2rem;
+}
+
+main section:first-child {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+  gap: 3.5rem;
+  margin-top: 5rem;
 }
 
 main section:first-child span,
@@ -108,11 +166,45 @@ main section:nth-child(2) span {
   font-weight: 400;
 }
 
-main section:first-child > div:first-child p,
+main section:first-child > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+main section:first-child div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+  justify-content: center;
+}
+
+main section:first-child div h2 {
+  font-weight: normal;
+}
+
+main section:first-child div > div {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  height: 100%;
+  width: 100%;
+}
+
+main section:first-child div > div span {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
 main section:nth-child(2) p,
 main section:nth-child(3) p {
   font-size: 15px;
   font-weight: 400;
+  color: black;
 }
 
 main section:first-child div:last-child {
@@ -137,77 +229,53 @@ main section:first-child div img {
 }
 
 main section:nth-child(2) > div {
-  margin: 2rem 0;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
   width: 100%;
 }
 
 main section:nth-child(2) div div {
-  border-radius: 0.625rem;
-  border: 1px solid #c3c3c3;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 10px;
-  margin: 1rem 0;
-}
-
-main section:nth-child(2) div div div:first-child {
-  background-color: #ffe7df;
-  padding: 1rem;
-  border: none;
-  color: #fcbaa4;
-  font-size: 28px;
-}
-
-main section:nth-child(2) div div > div {
+  width: 100%;
+  border-bottom: 1px solid #c9c9c9;
+  background-color: white;
+  padding: 2rem 1rem !important;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: start;
-  gap: 0;
-  padding: 0;
-  margin: 0;
-  border: none;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-main section:nth-child(2) div div h3 {
+main section:nth-child(2) > div > div h3 {
+  font-size: 50px !important;
   margin: 0;
-  font-size: 18px;
-  font-weight: 700;
 }
 
-main section:nth-child(2) div div p {
-  margin: 0;
-  color: #333;
-  font-weight: 300;
-  font-size: 13px;
+main section:nth-child(2) div div:hover h3 {
+  padding-left: 3rem;
+  transition: all 0.5s linear;
 }
 
-main section:nth-child(3) div > div:first-child div:first-child {
+main section:nth-child(3) div:first-child > div div {
   width: 100%;
-  height: 200px;
-  border-radius: 5px;
+  height: 300px;
   position: relative;
 }
 
-main section:nth-child(3) div > div:first-child div:nth-child(2),
-main section:nth-child(3) div > div:first-child div:last-child {
+main section:nth-child(3) div:first-child > div > div:nth-child(2),
+main section:nth-child(3) div:first-child > div > div:last-child {
   visibility: hidden;
   display: none;
 }
 
-main section:nth-child(3) div img {
-  border-radius: 5px;
+main section:nth-child(3) div:first-child > div div img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(65%);
+  filter: brightness(45%);
+  /* filter: grayscale(80%); */
 }
 
 main section:nth-child(3) div span {
@@ -239,6 +307,38 @@ main section:nth-child(3) button {
   padding: 0.75rem 1rem;
   font-size: 15px;
   font-weight: 400;
+}
+
+main section:nth-child(4) {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+main section:nth-child(4) h2 {
+  font-size: 40px;
+  width: 100vw;
+}
+
+main section:nth-child(4) p{
+  font-weight: 600;
+  font-size: 20px;
+  max-width: 50rem;
+}
+
+main section:nth-child(4) button{
+  background-color: transparent;
+  border: 1px black solid;
+  border-radius: 20px;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: "Inter";
 }
 
 footer {
@@ -356,9 +456,10 @@ header .content > div:last-child {
     gap: 3rem;
   }
 
-  .desktop-links a {
+  .desktop-links a > span div span {
     text-decoration: none;
     color: white;
+    font-weight: 300;
     font-size: 15px;
   }
 
@@ -410,6 +511,10 @@ header .content > div:last-child {
     align-items: flex-start;
     justify-content: space-between;
     height: 100%;
+  }
+
+  header .content > div:nth-child(2) {
+    overflow: hidden;
   }
 
   header .content > div:nth-child(2) p {
@@ -560,26 +665,40 @@ header .content > div:last-child {
 
   main > section:first-child {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    max-height: 100%;
+    width: 100vw;
     margin-top: 5rem;
+    overflow: hidden;
   }
 
-  main section:first-child > div:first-child {
-    display: block;
+  main section:first-child > span {
+    font-size: 24px;
   }
 
-  main section:first-child > div:first-child h2 {
-    font-size: 2.25rem;
+  main section:first-child > div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  main section:first-child > div > div {
+    width: 100% !important;
+    height: 100% !important;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  main section:first-child > div h2 {
     font-weight: 500;
-    max-width: 31.1875rem;
+    max-width: 20rem;
   }
 
-  main section:first-child > div:first-child p {
-    font-size: 1.25rem;
-    max-width: 31.1875rem;
+  main section:first-child > div > div span {
+    font-size: 36px;
   }
 
   main section:first-child > div:last-child {
@@ -595,39 +714,40 @@ header .content > div:last-child {
   }
 
   main section:nth-child(2) {
-    text-align: center;
+    margin-top: 5rem;
+    background-color: white;
   }
-  /* 
+
+  main section:nth-child(2) p {
+    max-width: 23rem;
+  }
+
   main section:nth-child(2) > div {
-
-  } */
-  main section:nth-child(2) > div > div {
-    padding: 1rem;
+    margin-top: 4rem;
   }
 
-  main section:nth-child(2) > div > div div:first-child {
-    padding: 1rem;
-    font-size: 40px;
+  main section:nth-child(2) > div > div h3 {
+    font-size: 64px !important;
   }
 
-  main section:nth-child(2) > div > div div h3 {
-    font-size: 1.5rem;
-    text-align: left;
-  }
-
-  main section:nth-child(2) > div > div div p {
-    font-size: 0.9375rem;
-    text-align: left;
-  }
   main section:nth-child(3) {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 1rem;
   }
 
-  main section:nth-child(3) h2:first-child {
-    display: none;
+  main section:nth-child(3) div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    height: 100%;
+    width: 100%;
+  }
+
+  main section:nth-child(3) div:first-child h2 {
+    font-size: 64px;
   }
 
   main section:nth-child(3) > div {
@@ -639,7 +759,7 @@ header .content > div:last-child {
     width: 100%;
   }
 
-  main section:nth-child(3) > div > div:first-child {
+  main section:nth-child(3) > div:first-child > div {
     display: grid;
     align-items: center;
     justify-content: center;
@@ -648,8 +768,8 @@ header .content > div:last-child {
     gap: 1rem;
   }
 
-  main section:nth-child(3) div > div:first-child div:nth-child(2),
-  main section:nth-child(3) div > div:first-child div:last-child {
+  main section:nth-child(3) div:first-child > div > div:nth-child(2),
+  main section:nth-child(3) div:first-child > div > div:last-child {
     visibility: visible;
     position: relative;
     display: block;
@@ -657,7 +777,7 @@ header .content > div:last-child {
   }
 
   main section:nth-child(3) > div > div:first-child div img {
-    height: 200px;
+    height: 300px;
   }
 
   main section:nth-child(3) > div:last-child {
@@ -667,6 +787,12 @@ header .content > div:last-child {
   main section:nth-child(3) h2 {
     margin: 0;
     margin-top: 15px;
+  }
+
+  main section:nth-child(4) h2 {
+    font-size: 94px;
+    text-wrap: nowrap;
+    margin-bottom: 30px;
   }
 
   footer {
@@ -722,4 +848,26 @@ header .content > div:last-child {
   main section:first-child > div:last-child img:first-child {
     display: block;
   }
+}
+
+/*fade animation*/
+.fade-container {
+  overflow: hidden;
+}
+
+.fade-container h1 {
+  margin: 0;
+  transform: translateX(50%);
+}
+
+.backUp {
+  transform: translateX(0);
+}
+
+.op-class {
+  opacity: 0;
+}
+.fadeIn {
+  opacity: 1;
+  transition: opacity 4s;
 }

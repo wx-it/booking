@@ -9,7 +9,7 @@ header::before {
   background-image: url("/public/images/hero-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  filter: brightness(55%);
+  filter: brightness(45%);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -239,7 +239,6 @@ main section:nth-child(2) > div {
 main section:nth-child(2) div div {
   width: 100%;
   border-bottom: 1px solid #c9c9c9;
-  background-color: white;
   padding: 2rem 1rem !important;
   cursor: pointer;
   display: flex;
@@ -325,92 +324,54 @@ main section:nth-child(4) h2 {
   width: 100vw;
 }
 
-main section:nth-child(4) p{
+main section:nth-child(4) p {
   font-weight: 600;
   font-size: 20px;
   max-width: 50rem;
 }
 
-main section:nth-child(4) button{
+main section:nth-child(4) button {
   background-color: transparent;
   border: 1px black solid;
   border-radius: 20px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   font-weight: 600;
   font-family: "Inter";
 }
 
 footer {
-  padding: 0.5rem;
+  padding: 2rem;
   margin-top: 3rem;
-}
-
-footer > div:first-child {
-  border-radius: 1.25rem;
-  background: #502e1c;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.4);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-}
-
-footer > div div:first-child {
-  text-align: center;
-  margin: 1rem 0;
-}
-
-footer > div div:first-child span {
-  font-weight: 700;
-}
-
-footer > div div:first-child p {
-  font-weight: 300;
-  font-size: 13px;
-}
-
-footer > div > div:nth-child(2) div,
-footer > div > div:nth-child(3) div {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 1rem 0;
-  text-align: center;
-}
-
-footer > div > div:nth-child(3) {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 1rem;
+  gap: 3rem;
 }
 
-footer > div > div:nth-child(3) span {
-  text-align: center;
-}
-
-footer > div > div:nth-child(2) div a,
-footer > div > div:nth-child(3) div a {
-  text-decoration: none;
-  color: white;
-  font-weight: 300;
-  font-size: 13px;
-}
-
-footer > div:last-child {
-  padding: 1rem 0;
+footer > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
 }
 
-footer > div:last-child span {
-  font-weight: 600;
-  font-size: 12px;
+footer div > span {
+  color: #000;
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+footer > div > div:nth-child(2) a {
+  text-decoration: none;
+  color: black;
+  margin: 0 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
 }
 
 footer > div:last-child div {
@@ -421,11 +382,21 @@ footer > div:last-child div {
 }
 
 .icon {
-  background-color: #502e1c;
-  color: white;
+  color: black;
   padding: 5px;
-  font-size: 24px;
+  font-size: 30px;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+footer span:last-child {
+  color: #000;
+  font-family: Inter;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.65rem;
 }
 
 .desktop-links,
@@ -663,6 +634,10 @@ header .content > div:last-child {
     padding: 0;
   }
 
+  main section {
+    min-height: 100vh;
+  }
+
   main > section:first-child {
     display: flex;
     flex-direction: row;
@@ -715,7 +690,6 @@ header .content > div:last-child {
 
   main section:nth-child(2) {
     margin-top: 5rem;
-    background-color: white;
   }
 
   main section:nth-child(2) p {
@@ -732,7 +706,7 @@ header .content > div:last-child {
 
   main section:nth-child(3) {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     gap: 1rem;
   }
@@ -796,39 +770,20 @@ header .content > div:last-child {
   }
 
   footer {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    gap: 6rem;
   }
 
   footer > div:first-child {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-    width: fit-content;
-  }
-
-  footer > div:first-child > div:first-child {
-    width: 30%;
-    text-align: left;
-  }
-
-  footer > div:first-child > div:nth-child(2) div,
-  footer > div:first-child > div:last-child div,
-  footer > div:first-child > div:nth-child(2) span,
-  footer > div:first-child > div:last-child > span {
-    text-align: left;
-  }
-
-  footer > div:last-child {
-    display: flex;
-    align-items: flex-end;
     justify-content: space-between;
-    width: 100%;
-    margin-top: 2rem;
+    align-items: center;
+  }
+
+  footer > span:last-child {
+    font-size: 8rem;
+    font-weight: 600;
+    letter-spacing: 2.6rem;
   }
 }
 

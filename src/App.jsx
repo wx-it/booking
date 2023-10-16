@@ -6,17 +6,45 @@ import { FaTwitter, FaFacebook, FaInstagram, FaSearch } from "react-icons/fa";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import { motion } from "framer-motion";
+import LocomotiveScroll from "locomotive-scroll";
 
 function App() {
   const [open, setOpen] = useState(false);
 
   const containerRef = useRef();
 
+  useEffect(() => {
+    const scroller = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      smooth: true,
+    });
+
+    scroller.on("call", (value, way) => {
+      if (way === "enter") {
+        switch (value) {
+          case "bg-white":
+            document.querySelector("body").style.backgroundColor = "#ffff";
+            break;
+          case "bg-light-blue":
+            document.querySelector("body").style.backgroundColor = "#F6FFFC";
+            break;
+          case "bg-light-green":
+            document.querySelector("body").style.backgroundColor = "#F1FFF4";
+            break;
+          case "colorBlack":
+            document.querySelector("body").style.backgroundColor = "#ffff";
+            break;
+        }
+      }
+    });
+  }, []);
+
   return (
     <LocomotiveScrollProvider
       options={{
         smooth: true,
-        // ... all available Locomotive Scroll instance options
+        inertia: 0.8,
+        getDirection: true,
       }}
       watch={
         [
@@ -26,9 +54,13 @@ function App() {
         ]
       }
       containerRef={containerRef}
+      onLocationChange={(scroll) =>
+        scroll.scrollTo(0, { duration: 0, disableLerp: true })
+      } // If you want to reset the scroll position to 0 for example
+      onUpdate={() => console.log("Updated, but not on location change!")} // Will trigger on
     >
       <main data-scroll-container ref={containerRef}>
-        <div>
+        <div data-scroll-section>
           <header>
             <nav>
               <span>Booking.</span>
@@ -279,7 +311,13 @@ function App() {
           </header>
 
           <main>
-            <section id="stick" data-scroll data-scroll-speed="5">
+            <section
+              id="stick"
+              data-scroll
+              data-scroll-speed="5"
+              data-scroll-call="bg-white"
+              data-scroll-repeat
+            >
               <span
                 data-scroll
                 data-scroll-speed="5"
@@ -380,7 +418,12 @@ function App() {
               </div>
             </section>
 
-            <section data-scroll data-scroll-speed="5">
+            <section
+              data-scroll
+              data-scroll-speed="5"
+              data-scroll-call="bg-light-blue"
+              data-scroll-repeat
+            >
               <span>Services</span>
               <h2>Our Best Facilities For You</h2>
               <p>
@@ -402,7 +445,12 @@ function App() {
               </div>
             </section>
 
-            <section data-scroll data-scroll-speed="5">
+            <section
+              data-scroll
+              data-scroll-speed="5"
+              data-scroll-call="bg-light-green"
+              data-scroll-repeat
+            >
               <div id="stick2">
                 <h2
                   data-scroll
@@ -440,7 +488,7 @@ function App() {
               </div>
             </section>
 
-            <section>
+            <section data-scroll data-scroll-call="bg-white" data-scroll-repeat>
               <h2
                 data-scroll
                 data-scroll-speed="5"
@@ -463,43 +511,23 @@ function App() {
             </section>
           </main>
 
-          <footer>
+          <footer data-scroll>
             <div>
-              <div>
                 <span>Booking.</span>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam consequat ornare ex, nec venenatis massa efficitur nec.
-                </p>
-              </div>
               <div>
-                <span>Navigation</span>
-                <div>
-                  <a href="">Home</a>
-                  <a href="">About Us</a>
-                  <a href="">Services</a>
-                  <a href="">Destination</a>
-                </div>
+                <a href="">Home</a>
+                <a href="">About Us</a>
+                <a href="">Services</a>
+                <a href="">Destination</a>
               </div>
 
-              <div>
-                <span>Contact Us</span>
-                <div>
-                  <a href="">+123 456 789</a>
-                  <a href="">info@booking.com</a>
-                  <a href="">booking.com</a>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <span>All Rights Reserved</span>
               <div>
                 <FaTwitter className="icon" />
                 <FaFacebook className="icon" />
                 <FaInstagram className="icon" />
               </div>
             </div>
+            <span>BOOKING</span>
           </footer>
         </div>
       </main>

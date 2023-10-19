@@ -1,7 +1,6 @@
 import "./app.css";
 import Hamburger from "hamburger-react";
 import { useState, useEffect, useRef } from "react";
-import { MdFreeCancellation } from "react-icons/md";
 import { FaTwitter, FaFacebook, FaInstagram, FaSearch } from "react-icons/fa";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
@@ -62,7 +61,16 @@ function App() {
       <main data-scroll-container ref={containerRef}>
         <div data-scroll-section>
           <header>
-            <nav>
+            <motion.nav
+              initial={{ opacity: 0, y: 200 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                damping: 3,
+                stiffness: 50,
+                restDelta: 0.001,
+              }}
+            >
               <span>Booking.</span>
               <button className="hamburger">
                 <Hamburger
@@ -134,7 +142,7 @@ function App() {
                   </span>
                 </button>
               </div>
-            </nav>
+            </motion.nav>
 
             <div className="content">
               <div>
@@ -151,11 +159,13 @@ function App() {
 
               <div>
                 <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 200 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{
                     type: "spring",
-                    duration: 2,
+                    damping: 3,
+                    stiffness: 50,
+                    restDelta: 0.001,
                     delay: 1,
                   }}
                   data-scroll
@@ -169,11 +179,13 @@ function App() {
                 <motion.h1
                   data-scroll
                   data-scroll-speed="2"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, y: 200 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{
                     type: "spring",
-                    duration: 2,
+                    damping: 3,
+                    stiffness: 50,
+                    restDelta: 0.001,
                     delay: 1.5,
                   }}
                 >
@@ -186,11 +198,13 @@ function App() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{
                   type: "spring",
-                  duration: 2,
+                  damping: 3,
+                  stiffness: 50,
+                  restDelta: 0.001,
                   delay: 2,
                 }}
               >
-                <motion.div whileHover={{ y: -10 }}>
+                <motion.div whileHover={{ scale: 1.05, border: "none" }}>
                   <div>
                     <span>Book your stay</span>
                     <svg
@@ -215,11 +229,13 @@ function App() {
                   data-scroll-speed="2"
                   data-scroll-position="top"
                   data-scroll-direction="vertical"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, x: 200 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{
                     type: "spring",
-                    duration: 2,
+                    damping: 3,
+                    stiffness: 50,
+                    restDelta: 0.001,
                     delay: 2.5,
                   }}
                 >
@@ -237,25 +253,30 @@ function App() {
                   data-scroll-speed="2"
                   data-scroll-position="top"
                   data-scroll-direction="vertical"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  initial={{ opacity: 0, x: 200 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{
                     type: "spring",
-                    duration: 2,
+                    damping: 3,
+                    stiffness: 50,
+                    restDelta: 0.001,
                     delay: 3,
                   }}
                 >
                   <h2>Discover our services</h2>
                   <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    initial={{ y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{
                       type: "spring",
-                      duration: 2,
+                      damping: 3,
+                      stiffness: 50,
+                      restDelta: 0.001,
+
                       delay: 3.5,
                     }}
                   >
-                    <p>Travel Plan</p>
+                    <p>Free cancelation</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="32"
@@ -275,11 +296,13 @@ function App() {
                     animate={{ opacity: 1 }}
                     transition={{
                       type: "spring",
-                      duration: 2,
+                      damping: 3,
+                      stiffness: 50,
+                      restDelta: 0.001,
                       delay: 4,
                     }}
                   >
-                    <p>Bar & Drink</p>
+                    <p>Price guarantee</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="32"
@@ -424,24 +447,93 @@ function App() {
               data-scroll-call="bg-light-blue"
               data-scroll-repeat
             >
-              <span>Services</span>
-              <h2>Our Best Facilities For You</h2>
-              <p>
+              <motion.span
+                initial={{ opacity: 0, x: 20 }}
+                transition={{
+                  type: "spring",
+                  duration: 1,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+              >
+                Services
+              </motion.span>
+              <motion.h2
+                initial={{ opacity: 0, x: 20 }}
+                transition={{
+                  type: "spring",
+                  duration: 1,
+                  delay: 0.25,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+              >
+                Our Best Facilities For You
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, x: 20 }}
+                transition={{
+                  type: "spring",
+                  duration: 1,
+                  delay: 0.5,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                }}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
                 consequat ornare ex, nec venenatis massa efficitur nec.
-              </p>
+              </motion.p>
 
               <div>
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  transition={{
+                    type: "spring",
+                    duration: 1,
+                    delay: 0.25,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                >
                   <h3>Free cancelation</h3>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  transition={{
+                    type: "spring",
+                    duration: 1,
+                    delay: 0.5,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                >
                   <h3>Price guarantee</h3>
-                </div>
+                </motion.div>
 
-                <div>
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  transition={{
+                    type: "spring",
+                    duration: 1,
+                    delay: 0.75,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                >
                   <h3>Safe booking</h3>
-                </div>
+                </motion.div>
               </div>
             </section>
 
@@ -452,15 +544,33 @@ function App() {
               data-scroll-repeat
             >
               <div id="stick2">
-                <h2
+                <motion.h2
+                  initial={{ opacity: 0 }}
+                  transition={{
+                    type: "spring",
+                    duration: 1,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                  }}
                   data-scroll
                   data-scroll-speed="5"
                   data-scroll-sticky
                   data-scroll-target="#stick2"
                 >
                   Our Top Picks For You
-                </h2>
-                <div>
+                </motion.h2>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  transition={{
+                    type: "spring",
+                    duration: 1,
+                    delay: 0.25,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                  }}
+                >
                   <div data-scroll data-scroll-speed="5">
                     <span>Search</span>
                     <img src="/public/images/barcelona.jpg" alt="" />
@@ -477,7 +587,7 @@ function App() {
                     <img src="/public/images/amsterdam.jpg" alt="" />
                     <span>Amsterdam, Netherland</span>
                   </div>
-                </div>
+                </motion.div>
               </div>
               <div data-scroll data-scroll-speed="5">
                 <p>
@@ -496,24 +606,46 @@ function App() {
               >
                 Claim Exciting Discounts For New Costumers
               </h2>
-              <p>
+              <motion.p
+                initial={{ opacity: 0, y: 100 }}
+                transition={{
+                  type: "spring",
+                  duration: 2,
+                  delay: 0.25,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+              >
                 Book a room today and claim discounts designed just for our new
                 costumers. Don't miss out on our special offers!
-              </p>
-              <button className="link">
+              </motion.p>
+              <motion.button
+                className="link"
+                initial={{ opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  duration: 2,
+                  delay: 0.75,
+                }}
+                whileInView={{
+                  opacity: 1,
+                }}
+              >
                 <span className="mask">
                   <div className="link-container">
                     <span className="link-title1 title">Book Now</span>
                     <span className="link-title2 title">Book Now</span>
                   </div>
                 </span>
-              </button>
+              </motion.button>
             </section>
           </main>
 
           <footer data-scroll>
             <div>
-                <span>Booking.</span>
+              <span>Booking.</span>
               <div>
                 <a href="">Home</a>
                 <a href="">About Us</a>
@@ -527,7 +659,10 @@ function App() {
                 <FaInstagram className="icon" />
               </div>
             </div>
-            <span>BOOKING</span>
+            <span data-scroll data-scroll-speed="5">
+              BOOKING
+            </span>
+            <img src="/public/images/footer.jpg" alt="" />
           </footer>
         </div>
       </main>

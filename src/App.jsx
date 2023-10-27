@@ -6,6 +6,11 @@ import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import "locomotive-scroll/dist/locomotive-scroll.css";
 import { motion } from "framer-motion";
 import LocomotiveScroll from "locomotive-scroll";
+import { animated, useSpring } from "@react-spring/web";
+import About from "./components/About";
+import Services from "./components/Services";
+import Destination from "./components/Destination";
+import Discount from "./components/Discount";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -37,6 +42,12 @@ function App() {
       }
     });
   }, []);
+
+  const { number } = useSpring({
+    from: { number: 0 },
+    to: { number: 200 },
+    config: { duration: 2000 }, // Duration in milliseconds
+  });
 
   return (
     <LocomotiveScrollProvider
@@ -103,7 +114,7 @@ function App() {
                     </div>
                   </span>
                 </a>
-                <a href="" className="link">
+                <a href="#about" className="link">
                   <span className="mask">
                     <div className="link-container">
                       <span className="link-title1 title">About Us</span>
@@ -111,7 +122,7 @@ function App() {
                     </div>
                   </span>
                 </a>
-                <a href="" className="link">
+                <a href="#services" className="link">
                   <span className="mask">
                     <div className="link-container">
                       <span className="link-title1 title">Services</span>
@@ -119,7 +130,7 @@ function App() {
                     </div>
                   </span>
                 </a>
-                <a href="" className="link">
+                <a href="#destination" className="link">
                   <span className="mask">
                     <div className="link-container">
                       <span className="link-title1 title">Destination</span>
@@ -147,7 +158,9 @@ function App() {
             <div className="content">
               <div>
                 <div data-scroll data-scroll-speed="5" data-scroll-delay="0.04">
-                  <span>200+</span>
+                  <animated.span>
+                    {number.interpolate((num) => `${Math.floor(num)}+`)}
+                  </animated.span>
                   <span>Happy costumers</span>
                 </div>
 
@@ -172,8 +185,8 @@ function App() {
                   data-scroll-speed="3"
                   data-scroll-position="top"
                 >
-                  We are available for your awesome projects! Affordable and
-                  satisfaction guaranteed. Just shoot us an email
+                  We're here 24/7 for all your booking needs! Reliable and
+                  satisfaction assured. Reach out via email anytime
                 </motion.p>
 
                 <motion.h1
@@ -320,7 +333,9 @@ function App() {
 
                 <div>
                   <div>
-                    <span>200+</span>
+                    <animated.span>
+                      {number.interpolate((num) => `${Math.floor(num)}+`)}
+                    </animated.span>
                     <span>Happy costumers</span>
                   </div>
 
@@ -334,313 +349,13 @@ function App() {
           </header>
 
           <main>
-            <section
-              id="stick"
-              data-scroll
-              data-scroll-speed="5"
-              data-scroll-call="bg-white"
-              data-scroll-repeat
-            >
-              <span
-                data-scroll
-                data-scroll-speed="5"
-                data-scroll-sticky
-                data-scroll-target="#stick"
-              >
-                About Us
-              </span>
-              <div>
-                <h2>Unlock The Art of Sophisticated Stays</h2>
-                <div>
-                  <motion.span
-                    initial={{ opacity: 0, x: 20 }}
-                    transition={{
-                      type: "spring",
-                      duration: 1,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      x: 0,
-                    }}
-                  >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0, x: 20 }}
-                    transition={{
-                      type: "spring",
-                      duration: 1,
-                      delay: 0.5,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      x: 0,
-                    }}
-                  >
-                    Nullam consequat ornare ex, nec venenatis massa efficitur
-                    motion.span.
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0, x: 20 }}
-                    transition={{
-                      type: "spring",
-                      duration: 1,
-                      delay: 1,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      x: 0,
-                    }}
-                  >
-                    Vestibulum ut sem ultrices, elementum tellus at, convallis
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0, x: 20 }}
-                    transition={{
-                      type: "spring",
-                      duration: 1,
-                      delay: 1.5,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      x: 0,
-                    }}
-                  >
-                    est. Vivamus posuere, dui ac ultrices fermentum, ligula
-                    motion.span
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0, x: 20 }}
-                    transition={{
-                      type: "spring",
-                      duration: 1,
-                      delay: 1.75,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      x: 0,
-                    }}
-                  >
-                    porta dui, feugiat molestie turpis libero eu dolor. Donec
-                  </motion.span>
-                  <motion.span
-                    initial={{ opacity: 0, x: 20 }}
-                    transition={{
-                      type: "spring",
-                      duration: 1,
-                      delay: 2,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      x: 0,
-                    }}
-                  >
-                    aliquam libero dolor, a bibendum massa convallis quis.
-                  </motion.span>
-                </div>
-              </div>
-            </section>
+            <About />
 
-            <section
-              data-scroll
-              data-scroll-speed="5"
-              data-scroll-call="bg-light-blue"
-              data-scroll-repeat
-            >
-              <motion.span
-                initial={{ opacity: 0, x: 20 }}
-                transition={{
-                  type: "spring",
-                  duration: 1,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-              >
-                Services
-              </motion.span>
-              <motion.h2
-                initial={{ opacity: 0, x: 20 }}
-                transition={{
-                  type: "spring",
-                  duration: 1,
-                  delay: 0.25,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-              >
-                Our Best Facilities For You
-              </motion.h2>
-              <motion.p
-                initial={{ opacity: 0, x: 20 }}
-                transition={{
-                  type: "spring",
-                  duration: 1,
-                  delay: 0.5,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                consequat ornare ex, nec venenatis massa efficitur nec.
-              </motion.p>
+            <Services />
 
-              <div>
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  transition={{
-                    type: "spring",
-                    duration: 1,
-                    delay: 0.25,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                >
-                  <h3>Free cancelation</h3>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  transition={{
-                    type: "spring",
-                    duration: 1,
-                    delay: 0.5,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                >
-                  <h3>Price guarantee</h3>
-                </motion.div>
+            <Destination />
 
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  transition={{
-                    type: "spring",
-                    duration: 1,
-                    delay: 0.75,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                >
-                  <h3>Safe booking</h3>
-                </motion.div>
-              </div>
-            </section>
-
-            <section
-              data-scroll
-              data-scroll-speed="5"
-              data-scroll-call="bg-light-green"
-              data-scroll-repeat
-            >
-              <div id="stick2">
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  transition={{
-                    type: "spring",
-                    duration: 1,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                  }}
-                  data-scroll
-                  data-scroll-speed="5"
-                  data-scroll-sticky
-                  data-scroll-target="#stick2"
-                >
-                  Our Top Picks For You
-                </motion.h2>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  transition={{
-                    type: "spring",
-                    duration: 1,
-                    delay: 0.25,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                  }}
-                >
-                  <div data-scroll data-scroll-speed="5">
-                    <span>Search</span>
-                    <img src="/public/images/barcelona.jpg" alt="" />
-                    <span>Barcelona, Spain</span>
-                  </div>
-                  <div data-scroll data-scroll-speed="2">
-                    <span>Search</span>
-                    <img src="/public/images/venice.jpg" alt="" />
-                    <span>Venice, Italy</span>
-                  </div>
-
-                  <div data-scroll data-scroll-speed="1">
-                    <span>Search</span>
-                    <img src="/public/images/amsterdam.jpg" alt="" />
-                    <span>Amsterdam, Netherland</span>
-                  </div>
-                </motion.div>
-              </div>
-              <div data-scroll data-scroll-speed="5">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam consequat ornare ex, nec venenatis massa efficitur nec.
-                </p>
-                <button>Discover more</button>
-              </div>
-            </section>
-
-            <section data-scroll data-scroll-call="bg-white" data-scroll-repeat>
-              <h2
-                data-scroll
-                data-scroll-speed="5"
-                data-scroll-direction="horizontal"
-              >
-                Claim Exciting Discounts For New Costumers
-              </h2>
-              <motion.p
-                initial={{ opacity: 0, y: 100 }}
-                transition={{
-                  type: "spring",
-                  duration: 2,
-                  delay: 0.25,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-              >
-                Book a room today and claim discounts designed just for our new
-                costumers. Don't miss out on our special offers!
-              </motion.p>
-              <motion.button
-                className="link"
-                initial={{ opacity: 0 }}
-                transition={{
-                  type: "spring",
-                  duration: 2,
-                  delay: 0.75,
-                }}
-                whileInView={{
-                  opacity: 1,
-                }}
-              >
-                <span className="mask">
-                  <div className="link-container">
-                    <span className="link-title1 title">Book Now</span>
-                    <span className="link-title2 title">Book Now</span>
-                  </div>
-                </span>
-              </motion.button>
-            </section>
+            <Discount />
           </main>
 
           <footer data-scroll>

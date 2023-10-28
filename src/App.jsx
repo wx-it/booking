@@ -11,6 +11,11 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Destination from "./components/Destination";
 import Discount from "./components/Discount";
+// import { Route, Routes, NavLink } from "react-router-dom";
+// import { HashLink } from "react-router-hash-link";
+// import { Link } from "react-router-dom";
+import locoScroll from "locomotive-scroll";
+import locomotiveScroll from "locomotive-scroll";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -21,6 +26,9 @@ function App() {
     const scroller = new LocomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true,
+      getSpeed: true,
+      getDirection: true,
+      inertia: 0.75,
     });
 
     scroller.on("call", (value, way) => {
@@ -41,12 +49,38 @@ function App() {
         }
       }
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      function ScrollUpdateDelay() {
+        setTimeout(function () {
+          locomotiveScroll.update();
+        }, 1000);
+      }
+
+      ScrollUpdateDelay();
+    });
+
+    const anchorLinks = document.querySelectorAll(
+      "a[href^=\\#]:not([href$=\\#])"
+    );
+
+    anchorLinks.forEach((anchorLink) => {
+      let hashval = anchorLink.getAttribute("href");
+      let target = document.querySelector(hashval);
+
+      anchorLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        scroller.scrollTo(target);
+      });
+    });
   }, []);
 
   const { number } = useSpring({
     from: { number: 0 },
     to: { number: 200 },
-    config: { duration: 2000 }, // Duration in milliseconds
+    config: { duration: 2000 },
   });
 
   return (
@@ -56,18 +90,11 @@ function App() {
         inertia: 0.8,
         getDirection: true,
       }}
-      watch={
-        [
-          //..all the dependencies you want to watch to update the scroll.
-          //  Basicaly, you would want to watch page/location changes
-          //  For exemple, on Next.js you would want to watch properties like `router.asPath` (you may want to add more criterias if the instance should be update on locations with query parameters)
-        ]
-      }
+      watch={[]}
       containerRef={containerRef}
       onLocationChange={(scroll) =>
         scroll.scrollTo(0, { duration: 0, disableLerp: true })
-      } // If you want to reset the scroll position to 0 for example
-      onUpdate={() => console.log("Updated, but not on location change!")} // Will trigger on
+      }
     >
       <main data-scroll-container ref={containerRef}>
         <div data-scroll-section>
@@ -98,10 +125,10 @@ function App() {
               </button>
               {open && (
                 <div className="mobile-links">
-                  <a href="">Home</a>
-                  <a href="">About Us</a>
-                  <a href="">Services</a>
-                  <a href="">Destination</a>
+                  <a onClick={()=> setOpen(false)} href="">Home</a>
+                  <a onClick={()=> setOpen(false)} href="#about">About Us</a>
+                  <a onClick={()=> setOpen(false)} href="#services">Services</a>
+                  <a onClick={()=> setOpen(false)} href="#destination">Destination</a>
                 </div>
               )}
 
@@ -114,7 +141,7 @@ function App() {
                     </div>
                   </span>
                 </a>
-                <a href="#about" className="link">
+                <a href="#about" className="link" data-scroll-to>
                   <span className="mask">
                     <div className="link-container">
                       <span className="link-title1 title">About Us</span>
@@ -122,7 +149,8 @@ function App() {
                     </div>
                   </span>
                 </a>
-                <a href="#services" className="link">
+
+                <a href="#services" className="link" data-scroll-to>
                   <span className="mask">
                     <div className="link-container">
                       <span className="link-title1 title">Services</span>
@@ -130,7 +158,7 @@ function App() {
                     </div>
                   </span>
                 </a>
-                <a href="#destination" className="link">
+                <a href="#destination" className="link" data-scroll-to>
                   <span className="mask">
                     <div className="link-container">
                       <span className="link-title1 title">Destination</span>
@@ -350,11 +378,8 @@ function App() {
 
           <main>
             <About />
-
             <Services />
-
             <Destination />
-
             <Discount />
           </main>
 

@@ -1,4 +1,4 @@
-import "./app.css";
+import "./App.css";
 import Hamburger from "hamburger-react";
 import { useState, useEffect, useRef } from "react";
 import { FaTwitter, FaFacebook, FaInstagram, FaSearch } from "react-icons/fa";
@@ -11,10 +11,6 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Destination from "./components/Destination";
 import Discount from "./components/Discount";
-// import { Route, Routes, NavLink } from "react-router-dom";
-// import { HashLink } from "react-router-hash-link";
-// import { Link } from "react-router-dom";
-import locoScroll from "locomotive-scroll";
 import locomotiveScroll from "locomotive-scroll";
 
 function App() {

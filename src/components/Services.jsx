@@ -16,6 +16,9 @@ const Services = () => {
           type: "spring",
           duration: 1,
         }}
+        viewport={{
+          once: true,
+        }}
         whileInView={{
           opacity: 1,
           x: 0,
@@ -30,6 +33,9 @@ const Services = () => {
           duration: 1,
           delay: 0.25,
         }}
+        viewport={{
+          once: true,
+        }}
         whileInView={{
           opacity: 1,
           x: 0,
@@ -43,6 +49,9 @@ const Services = () => {
           type: "spring",
           duration: 1,
           delay: 0.5,
+        }}
+        viewport={{
+          once: true,
         }}
         whileInView={{
           opacity: 1,
@@ -61,6 +70,9 @@ const Services = () => {
             duration: 1,
             delay: 0.25,
           }}
+          viewport={{
+            once: true,
+          }}
           whileInView={{
             opacity: 1,
             x: 0,
@@ -74,6 +86,9 @@ const Services = () => {
             type: "spring",
             duration: 1,
             delay: 0.5,
+          }}
+          viewport={{
+            once: true,
           }}
           whileInView={{
             opacity: 1,
@@ -89,6 +104,9 @@ const Services = () => {
             type: "spring",
             duration: 1,
             delay: 0.75,
+          }}
+          viewport={{
+            once: true,
           }}
           whileInView={{
             opacity: 1,

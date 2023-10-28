@@ -27,6 +27,9 @@ const About = () => {
               type: "spring",
               duration: 1,
             }}
+            viewport={{
+              once: true,
+            }}
             whileInView={{
               opacity: 1,
               x: 0,
@@ -40,6 +43,9 @@ const About = () => {
               type: "spring",
               duration: 1,
               delay: 0.5,
+            }}
+            viewport={{
+              once: true,
             }}
             whileInView={{
               opacity: 1,
@@ -55,6 +61,7 @@ const About = () => {
               duration: 1,
               delay: 1,
             }}
+            viewport={{ once: true }}
             whileInView={{
               opacity: 1,
               x: 0,
@@ -70,6 +77,7 @@ const About = () => {
               duration: 1,
               delay: 1.5,
             }}
+            viewport={{ once: true }}
             whileInView={{
               opacity: 1,
               x: 0,
@@ -82,6 +90,7 @@ const About = () => {
               duration: 1,
               delay: 1.75,
             }}
+            viewport={{ once: true }}
             whileInView={{
               opacity: 1,
               x: 0,
@@ -97,6 +106,7 @@ const About = () => {
               duration: 1,
               delay: 2,
             }}
+            viewport={{ once: true }}
             whileInView={{
               opacity: 1,
               x: 0,

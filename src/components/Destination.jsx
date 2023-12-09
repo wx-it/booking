@@ -43,18 +43,18 @@ const Destination = () => {
         >
           <div data-scroll data-scroll-speed="5">
             <span>Search</span>
-            <img src="/public/images/barcelona.jpg" alt="" />
+            <img src="/images/barcelona.jpg" alt="" />
             <span>Barcelona, Spain</span>
           </div>
           <div data-scroll data-scroll-speed="2">
             <span>Search</span>
-            <img src="/public/images/venice.jpg" alt="" />
+            <img src="/images/venice.jpg" alt="" />
             <span>Venice, Italy</span>
           </div>
 
           <div data-scroll data-scroll-speed="1">
             <span>Search</span>
-            <img src="/public/images/amsterdam.jpg" alt="" />
+            <img src="/images/amsterdam.jpg" alt="" />
             <span>Amsterdam, Netherland</span>
           </div>
         </motion.div>

@@ -282,7 +282,7 @@ function App() {
                     <span>$500/</span>
                     <span>cost</span>
                   </div>
-                  <img src="/public/images/lisbon.jpg" alt="" />
+                  <img src="/images/lisbon.jpg" alt="" />
                 </motion.div>
 
                 <motion.div
@@ -398,7 +398,7 @@ function App() {
             <span data-scroll data-scroll-speed="5">
               BOOKING
             </span>
-            <img src="/public/images/footer.jpg" alt="" />
+            <img src="/images/footer.jpg" alt="" />
           </footer>
         </div>
       </main>

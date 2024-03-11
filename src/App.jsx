@@ -100,7 +100,6 @@ function App() {
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 type: "spring",
-                damping: 3,
                 stiffness: 50,
                 restDelta: 0.001,
               }}
@@ -121,10 +120,18 @@ function App() {
               </button>
               {open && (
                 <div className="mobile-links">
-                  <a onClick={()=> setOpen(false)} href="">Home</a>
-                  <a onClick={()=> setOpen(false)} href="#about">About Us</a>
-                  <a onClick={()=> setOpen(false)} href="#services">Services</a>
-                  <a onClick={()=> setOpen(false)} href="#destination">Destination</a>
+                  <a onClick={() => setOpen(false)} href="">
+                    Home
+                  </a>
+                  <a onClick={() => setOpen(false)} href="#about">
+                    About Us
+                  </a>
+                  <a onClick={() => setOpen(false)} href="#services">
+                    Services
+                  </a>
+                  <a onClick={() => setOpen(false)} href="#destination">
+                    Destination
+                  </a>
                 </div>
               )}
 
@@ -200,7 +207,6 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     type: "spring",
-                    damping: 3,
                     stiffness: 50,
                     restDelta: 0.001,
                     delay: 1,
@@ -216,11 +222,10 @@ function App() {
                 <motion.h1
                   data-scroll
                   data-scroll-speed="2"
-                  initial={{ opacity: 0, y: 200 }}
+                  initial={{ opacity: 0.8, y: 200 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     type: "spring",
-                    damping: 3,
                     stiffness: 50,
                     restDelta: 0.001,
                     delay: 1.5,
@@ -235,7 +240,6 @@ function App() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{
                   type: "spring",
-                  damping: 3,
                   stiffness: 50,
                   restDelta: 0.001,
                   delay: 2,
@@ -270,7 +274,6 @@ function App() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{
                     type: "spring",
-                    damping: 3,
                     stiffness: 50,
                     restDelta: 0.001,
                     delay: 2.5,
@@ -282,7 +285,7 @@ function App() {
                     <span>$500/</span>
                     <span>cost</span>
                   </div>
-                  <img src="/images/lisbon.jpg" alt="" />
+                  <img src="/images/lisbon.webp" alt="" />
                 </motion.div>
 
                 <motion.div
@@ -294,7 +297,6 @@ function App() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{
                     type: "spring",
-                    damping: 3,
                     stiffness: 50,
                     restDelta: 0.001,
                     delay: 3,
@@ -398,7 +400,7 @@ function App() {
             <span data-scroll data-scroll-speed="5">
               BOOKING
             </span>
-            <img src="/images/footer.jpg" alt="" />
+            <img src="/images/footer.webp" alt="" />
           </footer>
         </div>
       </main>

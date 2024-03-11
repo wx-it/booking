@@ -6,7 +6,7 @@ header {
 
 header::before {
   content: "";
-  background-image: url("/public/images/hero-bg.jpg");
+  background-image: url("/public/images/hero-bg.webp");
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(30%) brightness(55%);
